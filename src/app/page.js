@@ -1,3 +1,4 @@
+"use client";
 import hero from"@/assets/herobok.png"
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import { useContext } from "react";
 import {DataContext} from "@/context/DataContext"
 
 
-const Home = async()=> {
+const Home =()=> {
  const { data } = useContext(DataContext);
 
 
@@ -33,9 +34,9 @@ Your reading journey starts here.
   </div>
 </div>
 <div className="grid lg:grid-cols-4 gap-3 p-4 container mx-auto">
-  {data.map((book)=>
-  <Card key={book.id} book={book}></Card>
-  )}
+ {data?.map((book) => (
+  <Card key={book.id} book={book} />
+))}
 </div>
     </div>
   );
