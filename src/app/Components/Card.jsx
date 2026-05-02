@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Card = ({ book }) => {
   return (
@@ -17,8 +18,11 @@ const Card = ({ book }) => {
         <p>{`Author: ${book.author}`}</p>
 
         <div className="card-actions justify-end">
+<Link href={`/allbooks/${book.id}`} className="btn btn-primary">
+
           <button className="btn btn-primary">View Details</button>
-        </div>
+
+</Link>        </div>
       </div>
     </div>
   );

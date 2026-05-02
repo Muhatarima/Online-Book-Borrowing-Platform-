@@ -11,8 +11,10 @@ export default function BookDetailsPage() {
   const { books } = useBooks();
   const [session, setSession] = useState(null);
 
-  // find book from context — no extra fetch needed
-  const book = books.find((b) => b.id === Number(id));
+
+  console.log("id from params:", id, typeof id);
+console.log("books:", books);
+const book = books.find((b) => String(b.id) === id);
 
   useEffect(() => {
     authClient.getSession().then(({ data }) => {
@@ -50,7 +52,7 @@ export default function BookDetailsPage() {
           <p className="text-gray-700 leading-relaxed">{book.description}</p>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">
+            <span className="text-sm font-medium bg-blue-500 text-blue-950 px-3 py-1 rounded-full">
               {book.category}
             </span>
             <span className="text-sm text-gray-500">
