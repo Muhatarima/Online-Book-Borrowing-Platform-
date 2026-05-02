@@ -26,7 +26,7 @@ const Navber = () => {
     <ul className="menu menu-horizontal px-1">
       <li><Link href="/" >Home</Link></li>
        
-        <li><Link href="/books">All Books</Link></li>
+        <li><Link href="/allbooks">All Books</Link></li>
         <li><Link href="/profile">My Profile</Link></li>
     </ul>
   </div>

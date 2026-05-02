@@ -57,7 +57,7 @@ export default function BooksPage() {
               />
               <h3 className="font-semibold text-sm">{book.title}</h3>
               <button
-                onClick={() => router.push(`/books/${book.id}`)}
+                onClick={() => router.push(`/allbooks/${book.id}`)}
                 className="mt-auto bg-black text-white text-sm py-2 rounded"
               >
                 Details
