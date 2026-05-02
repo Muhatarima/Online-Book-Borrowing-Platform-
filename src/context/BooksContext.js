@@ -11,7 +11,7 @@ export function BooksProvider({ children }) {
  
 
   useEffect(() => {
-    fetch("https://your-api-url.com/books")
+    fetch("/api/books")
       .then(res => res.json())
       .then(data => {
         setBooks(data);
