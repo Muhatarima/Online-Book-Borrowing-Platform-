@@ -21,6 +21,6 @@ export const auth = betterAuth({
   },
   trustedOrigins: [
     "http://localhost:3000",
-    "https://online-book-borrowing-platform-yifv.vercel.app", // ← add this
+    "https://online-book-borrowing-platform-gamma.vercel.app", // ← add this
   ],
 });

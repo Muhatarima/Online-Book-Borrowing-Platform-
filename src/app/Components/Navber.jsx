@@ -1,23 +1,16 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
-  const [session, setSession] = useState(null);
+  const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
-
-  useEffect(() => {
-    authClient.getSession().then(({ data }) => {
-      setSession(data);
-    });
-  }, []);
 
   const handleLogout = async () => {
     await authClient.signOut();
-    setSession(null);
     router.push("/");
+    router.refresh();
   };
 
   return (
@@ -47,8 +40,9 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end gap-2">
-        {session ? (
-         
+        {isPending ? (
+          <span className="loading loading-spinner loading-sm"></span>
+        ) : session ? (
           <>
             <span className="text-sm font-semibold hidden sm:block">
               👋 {session.user.name}
@@ -61,7 +55,6 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          
           <>
             <Link href="/login">
               <button className="btn btn-sm btn-ghost">Login</button>

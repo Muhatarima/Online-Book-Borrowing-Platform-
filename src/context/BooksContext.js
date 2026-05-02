@@ -11,7 +11,7 @@ export function BooksProvider({ children }) {
  
 
   useEffect(() => {
-    fetch("https://online-book-borrowing-platform-yifv.vercel.app/api/books")
+fetch("/api/books")
       .then(res => res.json())
       .then(data => {
         setBooks(data);
