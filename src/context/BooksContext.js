@@ -11,7 +11,7 @@ export function BooksProvider({ children }) {
  
 
   useEffect(() => {
-    fetch("https://online-book-borrowing-platform-git-main-muhatarimas-projects.vercel.app/api/books")
+    fetch("https://online-book-borrowing-platform-3ofnwu3ds-muhatarimas-projects.vercel.app/api/books")
       .then(res => res.json())
       .then(data => {
         setBooks(data);
