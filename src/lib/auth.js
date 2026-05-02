@@ -9,6 +9,7 @@ if (!uri) {
 }
 
 const client = new MongoClient(uri);
+await client.connect(); // ← add this
 const db = client.db("book-borrowing");
 
 export const auth = betterAuth({
@@ -18,4 +19,8 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://online-book-borrowing-platform-3ofnwu3ds-muhatarimas-projects.vercel.app", // ← add this
+  ],
 });
