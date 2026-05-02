@@ -1,7 +1,11 @@
 "use client";
 
-import { DataProvider } from "@/context/DataContext";
+import { BooksProvider } from "@/context/BooksContext";
 
 export default function Providers({ children }) {
-  return <DataProvider>{children}</DataProvider>;
+  return (
+    <BooksProvider>
+      {children}
+    </BooksProvider>
+  );
 }

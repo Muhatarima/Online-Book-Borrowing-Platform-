@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Card from "./Components/Card";
 import { useContext } from "react";
-import {DataContext} from "@/context/DataContext"
+import {DataContext} from "@/context/BooksContext"
 
 
 const Home =()=> {
