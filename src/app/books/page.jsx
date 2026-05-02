@@ -1,31 +1,71 @@
+"use client";
+import { useBooks } from "@/context/BooksContext";
+import { useRouter } from "next/navigation";
 
+const CATEGORIES = ["All", "Story", "Tech", "Science"];
 
-import Card from "../Components/Card";
-import Sidebar from "../Components/Sidebar";
-
-async function getBooks() {
-  const res = await fetch("http://localhost:5000/books");
-  return res.json();
-}
-
-export default async function AllBooksPage() {
-  const books = await getBooks();
+export default function BooksPage() {
+  const { filter = [], search, setSearch, category, setCategory } = useBooks();
+  const router = useRouter();
 
   return (
-    <div className="grid lg:grid-cols-3 container mx-auto">
-      <div className="col-span-1 grid ">
-        {books?.map((book) => (
-                  <Sidebar key={book.id} book={book} />
-               ))}
-      </div>
-      <div className="col-span-2">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-4">
-      {books?.length > 0 ? (
-        books.map((book) => <Card key={book.id} book={book} />)
-      ) : (
-        <p className="text-indigo-900 text-center">No books available</p>
-      )}
-    </div>
+    <div className="container mx-auto p-6 flex gap-6">
+
+      {/* Sidebar */}
+      <aside className="w-40 shrink-0">
+        <h3 className="font-semibold mb-3">Category</h3>
+        <ul className="flex flex-col gap-2">
+          {CATEGORIES.map(cat => (
+            <li
+              key={cat}
+              onClick={() => setCategory(cat)}
+              className={`cursor-pointer px-3 py-2 rounded-lg text-sm ${
+                category === cat
+                  ? "bg-black text-white"
+                  : "bg-gray-100 text-gray-700"
+              }`}
+            >
+              {cat}
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      {/* Main */}
+      <div className="flex-1">
+
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="w-full border p-3 rounded-lg mb-6"
+        />
+
+        {/* Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {filter.map(book => (
+            <div
+              key={book.id}
+              className="animate__animated animate__fadeIn border rounded-lg p-4 flex flex-col gap-2"
+            >
+              <img
+                src={book.image_url}
+                alt={book.title}
+                className="w-full h-40 object-cover rounded"
+              />
+              <h3 className="font-semibold text-sm">{book.title}</h3>
+              <button
+                onClick={() => router.push(`/books/${book.id}`)}
+                className="mt-auto bg-black text-white text-sm py-2 rounded"
+              >
+                Details
+              </button>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

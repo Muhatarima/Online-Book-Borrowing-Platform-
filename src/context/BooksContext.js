@@ -1,39 +1,43 @@
 "use client";
-
-import { createContext, useState, useEffect, use } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 export const BooksContext = createContext();
 
 export function BooksProvider({ children }) {
-  const [books , setBooks]= useState([]);
-  const[filter, setFilter]= useState([]);
-  const[search , setSearch]= useState("");
-  const[category , setCategory]= useState("All");
+  const [books, setBooks] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
 
   useEffect(() => {
     fetch("http://localhost:5000/books")
       .then(res => res.json())
-      .then(data => 
+      .then(data => {
         setBooks(data);
         setFilter(data);
-      
-      )
+      });
   }, []);
 
   useEffect(() => {
     let result = books;
-    if(category !== "All"){
+    if (category !== "All") {
       result = result.filter(book => book.category === category);
     }
-    if(search){
-      result = result.filter(book => book.title.toLowerCase().includes(search.toLowerCase()));
+    if (search) {
+      result = result.filter(book =>
+        book.title.toLowerCase().includes(search.toLowerCase())
+      );
     }
     setFilter(result);
   }, [category, search, books]);
 
   return (
-    <BooksContext.Provider value={{ filter, setSearch, setCategory }}>    
+    <BooksContext.Provider value={{ books, filter, setSearch, setCategory }}>
       {children}
     </BooksContext.Provider>
   );
+}
+
+export function useBooks() {
+  return useContext(BooksContext);
 }

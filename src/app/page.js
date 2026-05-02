@@ -3,13 +3,13 @@ import hero from"@/assets/herobok.png"
 import Image from "next/image";
 import Link from "next/link";
 import Card from "./Components/Card";
-import { useContext } from "react";
-import {DataContext} from "@/context/BooksContext"
+
+import { useBooks } from "@/context/BooksContext";
 
 
 const Home =()=> {
- const { data } = useContext(DataContext);
 
+  const {books} = useBooks();
 
     
         
@@ -34,7 +34,7 @@ Your reading journey starts here.
   </div>
 </div>
 <div className="grid lg:grid-cols-4 gap-3 p-4 container mx-auto">
- {data?.map((book) => (
+ {books.slice(0, 4).map((book) => (
   <Card key={book.id} book={book} />
 ))}
 </div>
