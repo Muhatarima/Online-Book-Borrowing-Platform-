@@ -26,7 +26,7 @@ Borrow instantly. Read at your own pace.
 Return when you're done — no fees, no stress.
 Your reading journey starts here.
       </p>
-      <Link href='/books' >      <button className="btn hover:bg-amber-400 hover:text-amber-950 bg-amber-300  text-amber-800">Browse Now</button>
+      <Link href='/allbooks' >      <button className="btn hover:bg-amber-400 hover:text-amber-950 bg-amber-300  text-amber-800">Browse Now</button>
 </Link>
 
 

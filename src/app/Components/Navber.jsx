@@ -16,7 +16,7 @@ const Navber = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><Link href="/" >Home</Link></li>
        
-        <li><Link href="/books">All Books</Link></li>
+        <li><Link href="/allbooks">All Books</Link></li>
         <li><Link href="/profile">My Profile</Link></li>
       </ul>
     </div>
