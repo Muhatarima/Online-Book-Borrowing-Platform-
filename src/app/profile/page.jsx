@@ -1,5 +1,5 @@
 import { auth } from '@/lib/auth'
-import React from 'react'
+import { updateInfo } from '../Components/UpdateInfo'
 
 const ProfilePage = () => {
     const session =auth.useSession();
@@ -10,6 +10,8 @@ const ProfilePage = () => {
 <h2>
     name: {session?.data?.user?.name} <br />
     email: {session?.data?.user?.email}
+    <br>
+    </updateInfo />
     
 </h2>
 
