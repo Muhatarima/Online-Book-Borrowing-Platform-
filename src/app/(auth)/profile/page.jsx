@@ -45,6 +45,11 @@ const ProfilePage = () => {
             <p className="text-xs text-gray-400 mb-1">Email</p>
             <p className="text-sm font-medium text-gray-700">{session?.user?.email}</p>
           </div>
+
+            <div className="bg-gray-50 rounded-xl px-4 py-3">
+            <p className="text-xs text-gray-400 mb-1">Profile Image</p>
+            <p className="text-sm font-medium text-gray-700">{session?.user?.image || "No image provided"}</p>
+          </div>
           <div className="bg-gray-50 rounded-xl px-4 py-3">
             <p className="text-xs text-gray-400 mb-1">Account Created</p>
             <p className="text-sm font-medium text-gray-700">

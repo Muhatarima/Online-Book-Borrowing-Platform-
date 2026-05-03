@@ -55,6 +55,10 @@ export default function UpdateInfo() {
                       <Input placeholder="Enter your name" />
                     </TextField>
 
+ <TextField className="w-full" name="image" type="text">
+                      <Label>Profile Image URL</Label>
+                      <Input placeholder="https://example.com/photo.jpg" />
+                    </TextField>
                     <Modal.Footer>
                       <Button slot="close" variant="secondary">Cancel</Button>
                       <Button type="submit" slot="close">Save</Button>

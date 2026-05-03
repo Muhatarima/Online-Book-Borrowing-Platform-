@@ -1,10 +1,9 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navber from "./Components/Navber";
+
 
 import Providers from "./providers";
-import Footer from "./Components/Footer";
 
 
 

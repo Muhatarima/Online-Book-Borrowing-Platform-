@@ -43,7 +43,7 @@ export default function BooksPage() {
             placeholder="🔍 Search by title..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-sm"
+            className="w-full bg-white border text-amber-900 border-gray-200 px-4 py-3 rounded-xl mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-sm"
           />
 
        

@@ -1,6 +1,4 @@
 "use client";
-import { Check } from "@gravity-ui/icons";
-import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
@@ -48,13 +46,13 @@ const SigninPage = () => {
       <Toaster />
       <div className="bg-white w-full max-w-md rounded-2xl shadow-md p-8">
 
-   
+        {/* Header */}
         <div className="mb-6 text-center">
           <h1 className="text-2xl font-bold text-gray-800">Welcome Back</h1>
           <p className="text-sm text-gray-500 mt-1">Login to your BookBorrow account</p>
         </div>
 
-      
+        {/* Google */}
         <button
           onClick={handleGoogle}
           className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition mb-4"
@@ -67,57 +65,49 @@ const SigninPage = () => {
           </svg>
           Continue with Google
         </button>
-  <div className="flex items-center gap-3 mb-4">
+
+        {/* Divider */}
+        <div className="flex items-center gap-3 mb-4">
           <div className="flex-1 h-px bg-gray-200" />
           <span className="text-xs text-gray-400">or</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
-    
-        <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
+        {/* Form */}
+        <form onSubmit={onSubmit} className="flex flex-col gap-4">
 
-          <TextField isRequired name="email" type="email"
-            validate={(value) => !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value) ? "Please enter a valid email address" : null}
-            className="flex flex-col gap-1"
-          >
-            <Label className="text-sm font-medium text-gray-700">Email</Label>
-            <Input placeholder="john@example.com" className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
-            <FieldError className="text-xs text-red-500" />
-          </TextField>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-gray-700">Email</label>
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="john@example.com"
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+          </div>
 
-          <TextField isRequired minLength={8} name="password" type="password"
-            validate={(value) => {
-              if (value.length < 8) return "Password must be at least 8 characters";
-              if (!/[A-Z]/.test(value)) return "Must contain at least one uppercase letter";
-              if (!/[0-9]/.test(value)) return "Must contain at least one number";
-              return null;
-            }}
-            className="flex flex-col gap-1"
-          >
-            <Label className="text-sm font-medium text-gray-700">Password</Label>
-            <Input placeholder="Enter your password" className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
-            <Description className="text-xs text-gray-400">Min 8 chars, 1 uppercase, 1 number</Description>
-            <FieldError className="text-xs text-red-500" />
-          </TextField>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-gray-700">Password</label>
+            <input
+              name="password"
+              type="password"
+              required
+              placeholder="Enter your password"
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+          </div>
 
-          <Button
+          <button
             type="submit"
-            className="w-full bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold py-2.5 rounded-lg transition mt-2"
+            className="w-full bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold py-2.5 rounded-lg transition mt-1"
           >
-            <Check /> Login
-          </Button>
+            Login
+          </button>
 
-          <Button
-            type="reset"
-            variant="secondary"
-            className="w-full border border-gray-300 text-gray-600 py-2.5 rounded-lg hover:bg-gray-50 transition text-sm"
-          >
-            Reset
-          </Button>
+        </form>
 
-        </Form>
-
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-gray-500 mt-5">
           Don&apos;t have an account?{" "}
           <Link href="/register" className="text-amber-600 font-medium hover:underline">
             Register
