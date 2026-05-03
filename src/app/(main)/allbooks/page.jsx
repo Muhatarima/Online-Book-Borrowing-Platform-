@@ -12,7 +12,7 @@ export default function BooksPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-6 py-8 flex gap-6">
 
-        {/* Sidebar */}
+        
         <aside className="w-44 shrink-0">
           <h3 className="text-sm font-bold text-gray-700 uppercase tracking-wider mb-3">
             Category
@@ -34,10 +34,10 @@ export default function BooksPage() {
           </ul>
         </aside>
 
-        {/* Main */}
+    
         <div className="flex-1">
 
-          {/* Search */}
+
           <input
             type="text"
             placeholder="🔍 Search by title..."
@@ -46,12 +46,12 @@ export default function BooksPage() {
             className="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-sm"
           />
 
-          {/* Count */}
+       
           <p className="text-sm text-gray-400 mb-4">
             {filter.length} books found
           </p>
 
-          {/* Cards */}
+    
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {filter.map(book => (
               <div

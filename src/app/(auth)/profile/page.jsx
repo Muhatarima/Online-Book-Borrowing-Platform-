@@ -2,7 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import UpdateInfo from "../Components/UpdateInfo";
+import UpdateInfo from "@/app/Components/UpdateInfo";
 
 const ProfilePage = () => {
   const { data: session, isPending } = authClient.useSession();

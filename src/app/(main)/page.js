@@ -2,7 +2,7 @@
 import hero from "@/assets/herobok.png";
 import Image from "next/image";
 import Link from "next/link";
-import Card from "./Components/Card";
+import Card from "../Components/Card";
 import { useBooks } from "@/context/BooksContext";
 
 const Home = () => {
@@ -12,14 +12,14 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* HERO */}
+     
       <div className="bg-amber-50 border-b border-amber-100">
         <div className="container mx-auto px-6 py-16 flex flex-col lg:flex-row items-center gap-12">
           
-          {/* Text */}
+         
           <div className="flex-1 flex flex-col gap-5">
             <span className="inline-block w-fit bg-amber-100 text-amber-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full">
-              📚 Online Book Borrowing
+               Online Book Borrowing
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               Find Your{" "}
@@ -39,7 +39,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Image */}
+         
           <div className="flex-1 flex justify-center">
             <Image
               src={hero}
