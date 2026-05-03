@@ -10,6 +10,7 @@ const ProfilePage = () => {
 <h2>
     name: {session?.data?.user?.name} <br />
     email: {session?.data?.user?.email}
+    
 </h2>
 
 
