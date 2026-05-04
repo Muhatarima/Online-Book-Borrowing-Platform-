@@ -86,7 +86,7 @@ export default function BooksPage() {
                     <p className="text-xs text-gray-400">{book.author}</p>
                     <button
                       onClick={() => router.push(`/allbooks/${book.id}`)}
-                      className="mt-auto w-full bg-amber-400 hover:bg-amber-500 text-amber-900 text-sm font-semibold py-2 rounded-lg transition"
+                      className="mt-auto w-full  animate__animated animate__bounce animate__slow  bg-amber-400 hover:bg-amber-500 text-amber-900 text-sm font-semibold py-2 rounded-lg transition"
                     >
                       View Details
                     </button>
