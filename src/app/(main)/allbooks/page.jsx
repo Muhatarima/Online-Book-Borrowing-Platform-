@@ -1,6 +1,7 @@
 "use client";
 import { useBooks } from "@/context/BooksContext";
 import { useRouter } from "next/navigation";
+import "animate.css";
 
 const CATEGORIES = ["All", "Story", "Tech", "Science"];
 
