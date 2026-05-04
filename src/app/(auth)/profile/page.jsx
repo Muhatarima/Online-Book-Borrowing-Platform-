@@ -48,7 +48,7 @@ const ProfilePage = () => {
 
             <div className="bg-gray-50 rounded-xl px-4 py-3">
             <p className="text-xs text-gray-400 mb-1">Profile Image</p>
-            <p className="text-sm font-medium text-gray-700">{session?.user?.image || "No image provided"}</p>
+            <p className="text-sm font-medium  break-all text-gray-700">{session?.user?.image || "No image provided"}</p>
           </div>
           <div className="bg-gray-50 rounded-xl px-4 py-3">
             <p className="text-xs text-gray-400 mb-1">Account Created</p>
